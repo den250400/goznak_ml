@@ -30,7 +30,7 @@ def train_classification(model: nn.Module, dataloader: torch.utils.data.DataLoad
     loss_fn = nn.BCEWithLogitsLoss()
     optimizer = optim.Adam(model.parameters(), lr=0.001)
     for epoch in range(n_epochs):
-        print(f"Epoch {epoch}")
+        print(f"Epoch {epoch}/{n_epochs}")
         model.train()
         for sequence, label in tqdm(dataloader):
             sequence, label = sequence.to(device), label.to(device)
@@ -95,7 +95,7 @@ def train_denoising(model: nn.Module, dataloader: torch.utils.data.DataLoader,
     loss_fn = nn.MSELoss()
     optimizer = optim.Adam(model.parameters(), lr=0.001)
     for epoch in range(n_epochs):
-        print(f"Epoch {epoch}")
+        print(f"Epoch {epoch}/{n_epochs}")
         model.train()
         for noisy, clean in tqdm(dataloader):
             noisy, clean = noisy.to(device), clean.to(device)
