@@ -9,8 +9,9 @@ from modules.procedures import train_classification
 model = LSTMClassifier(input_dim=80, hidden_dim=64)
 
 dataloader = load_classification_dataloader("./data/train")
+validation_dataloader = load_classification_dataloader("./data/val")
 
-train_classification(model, dataloader, n_epochs=50)
+train_classification(model, dataloader, validation_dataloader, n_epochs=50)
 
 if not os.path.exists(config.MODEL_SAVE_DIR):
     os.makedirs(config.MODEL_SAVE_DIR)
