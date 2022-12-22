@@ -1,1 +1,1 @@
-MODEL_SAVE_DIR = "./model"
+MODEL_SAVE_DIR = "models"
