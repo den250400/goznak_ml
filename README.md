@@ -1,1 +1,1 @@
-# goznak_ml
+# MEL-spectrograms classification and denoising
