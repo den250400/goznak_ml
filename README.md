@@ -35,6 +35,8 @@ pip3 install -r requirements.txt
 
 После обучения state dict модели сохраняется в папку models, и может быть в дальнейшем загружен другими скриптами для тестирования и inference. В этом репозитории в папке models уже лежат две предобученные модели: ```classifier.pth``` и ```denoiser.pth```.
 
+---
+
 __Обучение модели классификации__
 ```
 python3 train_classification.py --epochs=50 --dataset_path='./data' --model_filename='classifier.pth'
@@ -51,6 +53,9 @@ __Обучение denoising-модели__
 ```
 python3 train_denoising.py --epochs=10 --dataset_path='./data' --model_filename='denoiser.pth'
 ```
+
+---
+
 __Тестирование модели классификации, выводит на экран accuracy на выбранном датасете__
 ```
 python3 eval_classification.py --dataset_path='./data/val' --model_filename='classifier.pth'
@@ -76,8 +81,9 @@ python3 inference_audio.py --input_path='./data/noisy.wav' --model_filename='den
 
 ```output_path``` - путь для сохранения очищенного от шумов аудиофайла
 
+---
 
-Второй inference-скрипт (```inference_dataset.py```) берет случайную спектрограмму из выбранного датасета, прогоняет ее через denoising-модель, и сохраняет на диск 3 wav-файла:
+Второй inference-скрипт (```inference_from_dataset.py```) берет случайную спектрограмму из выбранного датасета, прогоняет ее через denoising-модель, и сохраняет на диск 3 wav-файла:
 
 * clean.wav - аудиофайл, соответствующий "чистой" спектрограмме (преобразование в аудио происходит с помощью алгоритма Гриффина-Лима)
 
@@ -86,5 +92,5 @@ python3 inference_audio.py --input_path='./data/noisy.wav' --model_filename='den
 * predicted.wav - аудиофайл, соответствующий denoised-версии спектрограммы
 
 ```
-python3 inference_dataset.py --dataset_path='./data/val' --model_filename='denoiser.pth' --clean_path='./data/clean.wav' --noisy_path='./data/noisy.wav' --predicted_path='./data/predicted.wav'
+python3 inference_from_dataset.py --dataset_path='./data/val' --model_filename='denoiser.pth' --clean_path='./data/clean.wav' --noisy_path='./data/noisy.wav' --predicted_path='./data/predicted.wav'
 ```
