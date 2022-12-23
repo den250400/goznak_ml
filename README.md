@@ -1,4 +1,7 @@
 # MEL-spectrograms classification and denoising
+
+![Demo](https://github.com/den250400/goznak_ml/blob/main/denoising_demo.png "Demo")
+
 ## Установка всех необходимых библиотек
 ```
 pip3 install -r requirements.txt
