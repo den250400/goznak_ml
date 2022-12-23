@@ -24,6 +24,8 @@ pip3 install -r requirements.txt
 - - - ...
 ```
 
+После обучения state dict модели сохраняется в папку models, и может быть в дальнейшем загружен другими скриптами для тестирования и inference. В этом репозитории в папке models уже лежат две предобученные модели: ```classifier.pth``` и ```denoiser.pth```.
+
 Обучение модели классификации
 ```
 python3 train_classification.py --epochs=50 --dataset_path='./data' --model_filename='classifier.pth'
