@@ -27,9 +27,13 @@ python3 train_denoising.py --dataset_path='./data/val' --model_filename='denoise
 python3 inference_audio.py --input_path='./data/noisy.wav' --model_filename='denoiser.pth' --output_path='./data/predicted.wav'
 ```
 Второй inference-скрипт (```inference_dataset.py```) берет случайную спектрограмму из выбранного датасета, прогоняет ее через denoising-модель, и сохраняет на диск 3 wav-файла:
-clean.wav - аудиофайл, соответствующий "чистой" спектрограмме (преобразование в аудио происходит с помощью алгоритма Гриффина-Лима)
-noisy.wav - аудиофайл, соответствующий зашумленной спектрограмме
-predicted.wav - аудиофайл, соответствующий denoised-версии спектрограммы
+
+*clean.wav - аудиофайл, соответствующий "чистой" спектрограмме (преобразование в аудио происходит с помощью алгоритма Гриффина-Лима)
+
+*noisy.wav - аудиофайл, соответствующий зашумленной спектрограмме
+
+*predicted.wav - аудиофайл, соответствующий denoised-версии спектрограммы
+
 ```
 python3 inference_dataset.py --dataset_path='./data/val' --model_filename='denoiser.pth' --clean_path='./data/clean.wav' --noisy_path='./data/noisy.wav' --predicted_path='./data/predicted.wav'
 ```
