@@ -39,11 +39,11 @@ python3 train_denoising.py --epochs=10 --dataset_path='./data' --model_filename=
 ```
 Тестирование модели классификации, выводит на экран accuracy на выбранном датасете
 ```
-python3 train_denoising.py --dataset_path='./data/val' --model_filename='classifier.pth'
+python3 eval_classification.py --dataset_path='./data/val' --model_filename='classifier.pth'
 ```
 Тестирование denoising-модели, выводит на экран средний MSE на выбранном датасете
 ```
-python3 train_denoising.py --dataset_path='./data/val' --model_filename='denoiser.pth'
+python3 eval_denoising.py --dataset_path='./data/val' --model_filename='denoiser.pth'
 ```
 ## Inference
 Первый inference-скрипт (```inference_audio.py```) демонстрирует работу denoising-модели на реальном аудиофайле: скрипт принимает на вход зашумленное аудио, и сохраняет в папку ./data его denoised-версию predicted.wav. Преобразование спектрограммы в аудиофайл осуществляется при помощи алгоритма Гриффина-Лима.
