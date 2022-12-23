@@ -16,7 +16,7 @@ args = parser.parse_args()
 model = LSTMDenoiser(input_dim=80, hidden_dim=80, spectrogram_resolution=80)
 model.load_state_dict(torch.load(os.path.join(config.MODEL_SAVE_DIR, args.model_filename)))
 
-dataloader = load_denoising_dataloader(args.data_path)
+dataloader = load_denoising_dataloader(args.dataset_path)
 
 eval_denoising(model, dataloader)
 show_denoising_spectrograms(model, dataloader)

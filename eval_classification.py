@@ -16,6 +16,6 @@ args = parser.parse_args()
 model = LSTMClassifier(input_dim=80, hidden_dim=64)
 model.load_state_dict(torch.load(os.path.join(config.MODEL_SAVE_DIR, args.model_filename)))
 
-dataloader = load_classification_dataloader(args.data_path)
+dataloader = load_classification_dataloader(args.dataset_path)
 
 eval_classification(model, dataloader)
