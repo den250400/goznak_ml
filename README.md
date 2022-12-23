@@ -1,10 +1,10 @@
 # MEL-spectrograms classification and denoising
-### Установка всех необходимых библиотек
+## Установка всех необходимых библиотек
 ```
 pip3 install -r requirements.txt
 ```
 
-### Обучение и тестирование
+## Обучение и тестирование
 Обучение модели классификации
 ```
 python3 train_classification.py --epochs=50 --dataset_path='./data' --model_filename='classifier.pth'
@@ -21,3 +21,4 @@ python3 train_denoising.py --dataset_path='./data/val' --model_filename='classif
 ```
 python3 train_denoising.py --dataset_path='./data/val' --model_filename='denoiser.pth'
 ```
+## Inference
