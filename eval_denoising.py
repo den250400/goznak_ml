@@ -9,7 +9,7 @@ from modules.procedures import eval_denoising, show_denoising_spectrograms
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--data_path", type=str, help="Path to directory with test data", default='./data/val')
+parser.add_argument("--dataset_path", type=str, help="Path to directory with test data", default='./data/val')
 parser.add_argument("--model_filename", type=str, help="Filename of model state dict", default='denoiser.pth')
 args = parser.parse_args()
 
