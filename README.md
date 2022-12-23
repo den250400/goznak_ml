@@ -5,6 +5,25 @@ pip3 install -r requirements.txt
 ```
 
 ## Обучение и тестирование
+Данные для обучения и валидации должны находиться в папке data в корне проекта, а сама папка должна иметь следующую структуру:
+
+```
+- train\
+- - noisy\
+- - - speaker1_id\
+- - - ...
+- - clean\
+- - - speaker1_id\
+- - - ...
+- val\
+- - noisy\
+- - - speaker1_id\
+- - - ...
+- - clean\
+- - - speaker1_id\
+- - - ...
+```
+
 Обучение модели классификации
 ```
 python3 train_classification.py --epochs=50 --dataset_path='./data' --model_filename='classifier.pth'
