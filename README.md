@@ -4,7 +4,7 @@
 pip3 install -r requirements.txt
 ```
 
-### Обучение, тестирование, и inference
+### Обучение и тестирование
 Обучение модели классификации
 ```
 python3 train_classification.py --epochs=50 --dataset_path='./data' --model_filename='classifier.pth'
