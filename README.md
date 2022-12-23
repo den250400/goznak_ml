@@ -35,19 +35,33 @@ pip3 install -r requirements.txt
 
 После обучения state dict модели сохраняется в папку models, и может быть в дальнейшем загружен другими скриптами для тестирования и inference. В этом репозитории в папке models уже лежат две предобученные модели: ```classifier.pth``` и ```denoiser.pth```.
 
-Обучение модели классификации
+__Обучение модели классификации__
 ```
 python3 train_classification.py --epochs=50 --dataset_path='./data' --model_filename='classifier.pth'
 ```
-Обучение denoising-модели
+Аргументы командной строки:
+
+```epochs``` - количество эпох обучения
+
+```dataset_path``` - путь к папке с обучающим (train) и валидационным (val) датасетом
+
+```model_filename``` - название файла с весами (state dict) модели в папке models
+
+__Обучение denoising-модели__
 ```
 python3 train_denoising.py --epochs=10 --dataset_path='./data' --model_filename='denoiser.pth'
 ```
-Тестирование модели классификации, выводит на экран accuracy на выбранном датасете
+__Тестирование модели классификации, выводит на экран accuracy на выбранном датасете__
 ```
 python3 eval_classification.py --dataset_path='./data/val' --model_filename='classifier.pth'
 ```
-Тестирование denoising-модели, выводит на экран средний MSE на выбранном датасете
+Аргументы командной строки
+
+```dataset_path``` - путь к папке с валидационным/тестовым датасетом
+
+```model_filename``` - название файла с весами (state dict) модели в папке models
+
+__Тестирование denoising-модели, выводит на экран средний MSE на выбранном датасете__
 ```
 python3 eval_denoising.py --dataset_path='./data/val' --model_filename='denoiser.pth'
 ```
@@ -56,6 +70,13 @@ python3 eval_denoising.py --dataset_path='./data/val' --model_filename='denoiser
 ```
 python3 inference_audio.py --input_path='./data/noisy.wav' --model_filename='denoiser.pth' --output_path='./data/predicted.wav'
 ```
+Аргументы командной строки
+
+```input_path``` - путь к исходному, зашумлённому аудиофайлу
+
+```output_path``` - путь для сохранения очищенного от шумов аудиофайла
+
+
 Второй inference-скрипт (```inference_dataset.py```) берет случайную спектрограмму из выбранного датасета, прогоняет ее через denoising-модель, и сохраняет на диск 3 wav-файла:
 
 * clean.wav - аудиофайл, соответствующий "чистой" спектрограмме (преобразование в аудио происходит с помощью алгоритма Гриффина-Лима)
